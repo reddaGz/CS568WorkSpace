@@ -18,3 +18,6 @@
   * It must have the render() method returning HTML
   * Also known as Stateful components because they implement logic and state.
   * React lifecycle methods can be used inside class components (for example, componentDidMount).
+
+  ## Reference
+  * https://www.geeksforgeeks.org/differences-between-functional-components-and-class-components-in-react/
