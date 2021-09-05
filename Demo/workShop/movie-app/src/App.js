@@ -320,7 +320,7 @@ class App extends Component {
                   // changeMovieRating={(event) =>
                   //   this.changeMovieRating(elem.id, event)
                   // }
-                  // showMovieDetail={() => this.showMovieDetail(elem.id)}
+                   showMovieDetail={() => this.showMovieDetail(elem.id)}
                   // changeMovieGenre={(event) =>
                   //   this.changeMovieGenre(elem.id, event)
                   // }
