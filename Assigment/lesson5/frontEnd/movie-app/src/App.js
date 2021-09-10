@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import './login.css'
 import React, { Component } from "react";
 import Movie from "./Movie";
 import NewMovie from "./NewMovie";
@@ -8,6 +9,7 @@ import UpdateMovie from "./UpdateMovie";
 import FavoriteMovie from "./FavoriteMovie";
 import MoveDetail from "./MoveDetail";
 import User from "./User";
+import CreateUser from "./CreateUser"
 
 class App extends Component {
   state = {
@@ -59,18 +61,24 @@ class App extends Component {
     detailInfo: null,
     updateMovie: null,
     clickedUpdateButton: false,
+    loginButtonClicked:false
   };
+
   componentDidMount(){
     console.log("App componentDidMount")
   }
   componentDidUpdate(){
     console.log("App componentDidUpdate")
   }
+  loginButtonHandler=()=>{
+  this.setState({loginButtonClicked:!this.state.loginButtonClicked})
+  }
   displayNewMovieForms = () => {
     this.setState({
       addNewMovieButtonClicked: !this.state.addNewMovieButtonClicked,
     });
   };
+
   replaceOldValues = (id) => {
     let oldValueIndex = this.state.movies.findIndex((elem) => elem.id === id);
     this.state.movies.splice(oldValueIndex, 1, this.state.updateMovie);
@@ -301,8 +309,11 @@ class App extends Component {
     return (
 
       <div className="App">
-      <User></User>
-        <br />
+      {
+        this.state.loginButtonClicked?null: <User loginButtonHandler={this.loginButtonHandler}></User>
+      }
+      {
+        this.state.loginButtonClicked?<div><br />
         <br />
         <button onClick={this.displayNewMovieForms}>Add New Movies</button>
         <div>
@@ -344,9 +355,10 @@ class App extends Component {
             Show/HideMovieFavorite
           </button>
         </div>
-
         <div>{this.state.showHideFavorite ? favoriteMovie : null}</div>
-        <div>{updateMovieForms}</div>
+        <div>{updateMovieForms}</div></div>:null
+      }  
+      <CreateUser></CreateUser>
       </div>
     );
   }
