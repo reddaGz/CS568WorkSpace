@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class User extends Component{
+export default class UserLogin extends Component{
     componentWillUnmount(){
      this.setState({loginButtonClicked:!this.props.loginButtonClicked})
     }
@@ -18,7 +18,7 @@ export default class User extends Component{
                           "font-style": "italic",
                         }}
                       >
-                        Movie List
+                        Movie
                       </h1>
                       <div className="fadeIn first">
                         <img src="./image/key.jpeg" id="icon" alt="User Icon" />
